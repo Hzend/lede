@@ -34,6 +34,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: master
+          
+      - name: 同步最新的源码
+        run: |
+          git remote add openwrt https://github.com/coolsnowwolf/lede.git
+          git pull openwrt master
+          git remote -v
 
       - name: Space cleanup
         env:
